@@ -1,0 +1,38 @@
+name: linting
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: cml
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+        run:
+          name: Install Shellcheck
+          command: |
+            curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
+            tar xf shellcheck-stable.linux.x86_64.tar.xz
+            sudo mv shellcheck-stable/shellcheck /usr/local/bin
+          working_directory: /tmp/shellcheck
+
+        run:
+          name: install dependencies
+          command: |
+            pip3 install poetry
+            poetry install
+
+        run:
+          name: run linting
+          when: always
+          command: |
+            true; PYTHONPATH=. ./tasks/lint.sh
