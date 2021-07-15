@@ -21,7 +21,6 @@ jobs:
             curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
-          working_directory: /tmp/shellcheck
 
       - run: |
             pip3 install poetry
