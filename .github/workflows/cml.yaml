@@ -17,14 +17,12 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: |
+        run: |
             curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
 
-      - run: |
             pip3 install poetry
             poetry install
-
-      - run: |
+            
             true; PYTHONPATH=. ./tasks/lint.sh
