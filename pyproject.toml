@@ -17,6 +17,15 @@ uvloop = "^0.15.3"
 httptools = "^0.2.0"
 matplotlib = "^3.4.2"
 streamlit = "^0.84.1"
+black = "^21.6b0"
+bandit = "^1.7.0"
+mypy = "^0.910"
+pycodestyle = "^2.7.0"
+pydocstyle = "^6.1.1"
+pylint = "^2.9.3"
+pytest = "^6.2.4"
+safety = "^1.10.3"
+Pillow = "^8.3.1"
 
 [tool.poetry.dev-dependencies]
 

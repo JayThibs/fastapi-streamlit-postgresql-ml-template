@@ -17,4 +17,4 @@ poetry:
 
 # Lint
 lint:
-	tasks/lint.sh
+	bash ./tasks/lint.sh

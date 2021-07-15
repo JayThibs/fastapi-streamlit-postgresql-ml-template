@@ -15,22 +15,22 @@ FAILURE=false
 # fi
 
 echo "pylint"
-pylint text_recognizer training || FAILURE=true
+pylint training || FAILURE=true
 
 echo "pycodestyle"
-pycodestyle text_recognizer training || FAILURE=true
+pycodestyle training || FAILURE=true
 
 echo "pydocstyle"
-pydocstyle text_recognizer training || FAILURE=true
+pydocstyle training || FAILURE=true
 
 echo "mypy"
-mypy text_recognizer training || FAILURE=true
+mypy training || FAILURE=true
 
 echo "bandit"
-bandit -ll -r {text_recognizer,training} || FAILURE=true
+bandit -ll -r {training} || FAILURE=true
 
-echo "shellcheck"
-find . -name "*.sh" -print0 | xargs -0 shellcheck || FAILURE=true
+# echo "shellcheck"
+# find . -name "*.sh" -print0 | xargs -0 shellcheck || FAILURE=true
 
 if [ "$FAILURE" = true ]; then
   echo "Linting failed"
