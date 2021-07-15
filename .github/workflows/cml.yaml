@@ -22,7 +22,7 @@ jobs:
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
 
-            pip3 install poetry
-            poetry install
+            sudo pip3 install poetry
+            sudo poetry install
 
-            true; PYTHONPATH=. ./tasks/lint.sh
+            true; sudo PYTHONPATH=. ./tasks/lint.sh
