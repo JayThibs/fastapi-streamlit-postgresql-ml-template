@@ -5,7 +5,7 @@ description = "This is a template fastapi app for machine learning model deploym
 authors = ["JayThibs <thibo.jacques@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "3.7.4"
+python = "3.7.5"
 numpy = "^1.21.0"
 scipy = "^1.7.0"
 scikit-learn = "^0.24.2"
