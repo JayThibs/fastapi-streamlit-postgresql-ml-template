@@ -1,3 +1,5 @@
+# This file is a simple test of FastAPI.
+
 # 1. Library imports
 import uvicorn ##ASGI
 from fastapi import FastAPI
@@ -16,13 +18,11 @@ def index():
 def get_name(name: str):
     return {'Welcome to JayThibs FastAPI app': f'{name}'}
 
-
-
 # 5. Run the API with uvicorn
 #    Will run on http://127.0.0.1:8000
+#    Test out application with Swagger docs at: 
+#    http://127.0.0.1:8000/docs 
 if __name__ == '__main__':
+    # execute the following in the command-line:
+    # uvicorn main:app --reload
     uvicorn.run(app, host='127.0.0.1', port=8000)
-#uvicorn main:app --reload
-
-
-
