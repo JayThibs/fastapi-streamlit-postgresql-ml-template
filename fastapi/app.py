@@ -30,7 +30,7 @@ def predict_banknote(data:BankNote): # BankNote inherits BaseModel
     skewness=data['skewness']
     curtosis=data['curtosis']
     entropy=data['entropy']
-   # print(classifier.predict([[variance,skewness,curtosis,entropy]]))
+#    print(classifier.predict([[variance,skewness,curtosis,entropy]]))
     prediction = classifier.predict([[variance,skewness,curtosis,entropy]])
     if(prediction[0]>0.5):
         prediction="Fake note"

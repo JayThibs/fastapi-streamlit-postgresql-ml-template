@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/jacquesthibodeau/anaconda3/envs/fastapi-ml/bin/python3.7"
+    "python.pythonPath": "/Users/jacquesthibodeau/anaconda3/envs/fastapi-streamlit-ml/bin/python3.7",
+    "python.linting.pylintEnabled": true
 }
