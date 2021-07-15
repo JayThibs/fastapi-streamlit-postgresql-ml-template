@@ -7,3 +7,4 @@ You can create the environment to test out the project by simply running the fol
 1. `make conda-update` to add exact Python and CUDA versions.
 2. `conda activate fastapi-streamlit-ml` to create conda environment.
 3. `make poetry` to install all Python dependencies.
+
