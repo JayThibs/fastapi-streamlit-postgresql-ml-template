@@ -2,7 +2,7 @@ name: fastapi-streamlit-ml
 channels:
   - defaults
 dependencies:
-  - python=3.7.4
+  - python=3.7.5
   # - cudatoolkit=10.1 # for deep learning
   # - cudnn=7.6 # for deep learning
   - pip
