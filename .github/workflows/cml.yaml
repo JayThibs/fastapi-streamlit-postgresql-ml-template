@@ -17,7 +17,7 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
-        run:
+      - run:
           name: Install Shellcheck
           command: |
             curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
@@ -25,13 +25,13 @@ jobs:
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
           working_directory: /tmp/shellcheck
 
-        run:
+      - run:
           name: install dependencies
           command: |
             pip3 install poetry
             poetry install
 
-        run:
+      - run:
           name: run linting
           when: always
           command: |
