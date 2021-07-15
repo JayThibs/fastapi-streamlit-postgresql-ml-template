@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 18 13:07:51 2020
-
-@author: win10
-"""
-#pip install fastapi uvicorn
-
 # 1. Library imports
 import uvicorn ##ASGI
 from fastapi import FastAPI
@@ -22,7 +14,7 @@ def index():
 #    Located at: http://127.0.0.1:8000/AnyNameHere
 @app.get('/Welcome')
 def get_name(name: str):
-    return {'Welcome To Krish Youtube Channel': f'{name}'}
+    return {'Welcome to JayThibs FastAPI app': f'{name}'}
 
 
 
