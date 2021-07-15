@@ -8,13 +8,13 @@ Created on Tue Nov 17 21:40:41 2020
 # 1. Library imports
 import uvicorn
 from fastapi import FastAPI
-from BankNotes import BankNote
+from .BankNotes import BankNote
 import numpy as np
 import pickle
 import pandas as pd
 # 2. Create the app object
 app = FastAPI()
-pickle_in = open("classifier.pkl","rb")
+pickle_in = open("./artifacts/classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
 
 # 3. Index route, opens automatically on http://127.0.0.1:8000
