@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 17 21:51:19 2020
-
-@author: win10
-"""
+# Import BaseModel to enforce type hints
+# Provides user friendly errors when data is invalid.
 from pydantic import BaseModel
-# 2. Class which describes Bank Notes measurements
+# Class which describes Bank Notes measurements
 class BankNote(BaseModel):
     variance: float 
     skewness: float 
