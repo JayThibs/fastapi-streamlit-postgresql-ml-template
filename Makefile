@@ -5,11 +5,10 @@ help:
 # Install exact Python and CUDA versions
 conda-update:
 	conda env update --prune -f environment.yml
-	echo "!!!RUN RIGHT NOWconda:\nconda activate fastapi-ml"
+	echo "!!!RUN RIGHT NOWconda:\nconda activate fastapi-streamlit-ml"
 
 # Compile and install exact python packages
 poetry:
-	pip install poetry
 	poetry install
 
 # # Example training command
