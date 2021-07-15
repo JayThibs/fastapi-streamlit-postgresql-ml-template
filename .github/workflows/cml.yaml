@@ -16,23 +16,16 @@ jobs:
       - name: cml
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Install Shellcheck
-        run:
-          command: |
+
+      - run: |
             curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
           working_directory: /tmp/shellcheck
 
-      - name: install dependencies
-        run:
-          command: |
+      - run: |
             pip3 install poetry
             poetry install
 
-      - name: run linting
-        run:
-          when: always
-          command: |
+      - run: |
             true; PYTHONPATH=. ./tasks/lint.sh
