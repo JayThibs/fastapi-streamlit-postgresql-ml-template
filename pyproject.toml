@@ -16,6 +16,7 @@ gunicorn = "19.9.0"
 uvloop = "^0.15.3"
 httptools = "^0.2.0"
 matplotlib = "^3.4.2"
+streamlit = "^0.84.1"
 
 [tool.poetry.dev-dependencies]
 
