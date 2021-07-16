@@ -11,5 +11,6 @@ if [ "$FAILURE" = true ]; then
   echo "Tests failed"
   exit 1
 fi
+
 echo "Tests passed"
 exit 0
