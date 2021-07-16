@@ -24,5 +24,7 @@ jobs:
 
             pip3 install poetry
             poetry install
-
-            true; PYTHONPATH=. bash ./tasks/lint.sh
+            
+            find "$HOME" -name "mypy" -print
+            echo $PATH
+            make lint
