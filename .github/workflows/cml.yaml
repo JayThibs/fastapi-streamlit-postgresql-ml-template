@@ -25,4 +25,4 @@ jobs:
             pip3 install poetry
             poetry install
 
-            true; PYTHONPATH=. ./tasks/lint.sh
+            true; PYTHONPATH=. bash ./tasks/lint.sh
