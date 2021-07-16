@@ -27,6 +27,5 @@ jobs:
             
             find "$HOME" -name "mypy" -print
             echo $PATH
-            cd /home/runner/.cache/pypoetry/virtualenvs/banknoteclassifier-uZ1-hj0y-py3.7/bin/
-            echo $PATH
+            PYTHONPATH=/home/runner/.cache/pypoetry/virtualenvs/banknoteclassifier-uZ1-hj0y-py3.7/bin/python
             make lint
