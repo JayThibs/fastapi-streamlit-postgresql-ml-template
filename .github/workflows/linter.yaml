@@ -1,4 +1,4 @@
-name: linting
+name: linter
 
 on: [push]
 
@@ -16,17 +16,17 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - uses: abatilo/actions-poetry@v2.0.0
-      - name: View poetry --help
-        run: poetry --help
-      - name: dependency installation
-        run: sudo poetry install
           
-      - name: cml
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Install Shellcheck
         run: |
+            
             curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
+        working-directory: /tmp/shellcheck
+        
+      - name: Install dependencies
+        run: pip install bandit black mypy pycodestyle pydocstyle pylint pytest safety
+        
+      - name: Linting
+        run: make lint
