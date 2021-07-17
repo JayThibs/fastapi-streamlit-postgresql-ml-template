@@ -3,7 +3,16 @@ name: linter
 on: [push]
 
 jobs:
-  ci:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run ShellCheck
+      uses: ludeeus/action-shellcheck@master
+      with:
+        scandir: ./fastapi
+  linting:
     strategy:
       fail-fast: false
       matrix:
@@ -16,17 +25,22 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-          
-      - name: Install Shellcheck
-        run: |
-            
-            curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
-            tar xf shellcheck-stable.linux.x86_64.tar.xz
-            sudo mv shellcheck-stable/shellcheck /usr/local/bin
-        working-directory: /tmp/shellcheck
         
       - name: Install dependencies
         run: pip install bandit black mypy pycodestyle pydocstyle pylint pytest safety
+      
+      - name: Run black --check ./fastapi
+        run: black --check ./fastapi
+      - name: If needed, commit black changes to the pull request
+        if: failure()
+        run: |
+          black ./fastapi
+          git config --global user.name 'JayThibs'
+          git config --global user.email 'thibo.jacques@gmail.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout $GITHUB_HEAD_REF
+          git commit -am "fixup: Format Python code with Black [skip ci]"
+          git push
         
       - name: Linting
         run: make lint
