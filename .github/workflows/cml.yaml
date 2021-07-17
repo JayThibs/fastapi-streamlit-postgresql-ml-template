@@ -7,21 +7,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8]
-        poetry-version: [1.0, 1.1.6]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
+        python-version: [3.7.5]
+        os: [ubuntu-18.04]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: iterative/setup-cml@v1
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.7.5'
-          poetry-version: '1.1.6'
-      - name: Run image
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
+          python-version: ${{ matrix.python-version }}
+      - uses: abatilo/actions-poetry@v2.0.0
+      - name: View poetry --help
+        run: poetry --help
+      - name: dependency installation
+        run: poetry install
           
       - name: cml
         env:
@@ -31,6 +30,3 @@ jobs:
             curl -OL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
-
-            poetry install
-            make lint
