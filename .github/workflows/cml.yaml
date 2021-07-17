@@ -12,7 +12,12 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.7.5'
-
+          poetry-version: '1.1.6'
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+          
       - name: cml
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -22,10 +27,5 @@ jobs:
             tar xf shellcheck-stable.linux.x86_64.tar.xz
             sudo mv shellcheck-stable/shellcheck /usr/local/bin
 
-            pip3 install poetry
             poetry install
-            
-            find "$HOME" -name "mypy" -print
-            echo $PATH
-            PYTHONPATH=/home/runner/.cache/pypoetry/virtualenvs/banknoteclassifier-uZ1-hj0y-py3.7/bin/python
             make lint
