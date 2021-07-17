@@ -20,7 +20,7 @@ jobs:
       - name: View poetry --help
         run: poetry --help
       - name: dependency installation
-        run: poetry install
+        run: sudo poetry install
           
       - name: cml
         env:
