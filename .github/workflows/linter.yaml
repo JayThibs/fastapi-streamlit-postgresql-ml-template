@@ -11,7 +11,7 @@ jobs:
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
       with:
-        scandir: ./fastapi
+        scandir: ./tasks
   linting:
     strategy:
       fail-fast: false
