@@ -39,7 +39,7 @@ jobs:
           git config --global user.email 'thibo.jacques@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git checkout $GITHUB_HEAD_REF
-          git commit -am "fixup: Format Python code with Black [skip ci]"
+          git commit -am "fixup: Format Python code with Black"
           git push
         
       - name: Linting
