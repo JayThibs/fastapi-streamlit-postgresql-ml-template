@@ -15,19 +15,19 @@ FAILURE=false
 # fi
 
 echo "pylint"
-pylint training fastapi || FAILURE=true
+pylint training || FAILURE=true
 
 echo "pycodestyle"
-pycodestyle training fastapi || FAILURE=true
+pycodestyle training || FAILURE=true
 
 echo "pydocstyle"
-pydocstyle training fastapi || FAILURE=true
+pydocstyle training || FAILURE=true
 
 echo "mypy"
-mypy training fastapi || FAILURE=true
+mypy training || FAILURE=true
 
 echo "bandit"
-bandit -ll -r {training, fastapi} || FAILURE=true
+bandit -ll -r {training} || FAILURE=true
 
 # echo "shellcheck"
 # find . -name "*.sh" -print0 | xargs -0 shellcheck || FAILURE=true
