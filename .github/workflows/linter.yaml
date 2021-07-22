@@ -27,10 +27,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
         
       - name: Install dependencies
-        run: pip install bandit black mypy pycodestyle pydocstyle pylint pytest safety
+        run: pip install bandit black mypy pycodestyle pydocstyle pylint pytest safety flake8
       
       - name: Run black --check ./fastapi
         run: black --check ./fastapi
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          black: true
+          flake8: true
+          mypy: true
+          
       - name: If needed, commit black changes to the pull request
         if: failure()
         run: |
