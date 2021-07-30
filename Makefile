@@ -11,9 +11,11 @@ conda-update:
 poetry:
 	poetry install
 
+dbpw ?= mysecretpassword
+
 # run a PostgreSql container with Docker
 run-db:
-	docker run --name banknote_postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysuperpassword -e POSTGRES_DB=youtube -v ${PWD}/db_data:/var/lib/postgresql/data -d postgres
+	docker run --name banknote_postgres -p 5432:5432 -e POSTGRES_PASSWORD='$(dbpw)' -e POSTGRES_DB=banknote -v ${PWD}/db_data:/var/lib/postgresql/data -d postgres
 
 # # Example training command
 # train-mnist-cnn-ddp:
