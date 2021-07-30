@@ -7,11 +7,11 @@ jobs:
     name: Shellcheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run ShellCheck
-      uses: ludeeus/action-shellcheck@master
-      with:
-        scandir: ./tasks
+      - uses: actions/checkout@v2
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: ./tasks
   linting:
     strategy:
       fail-fast: false
@@ -25,12 +25,12 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-        
+
       - name: Install dependencies
         run: pip install bandit black mypy pycodestyle pydocstyle pylint pytest safety flake8
-      
-      - name: Run black --check ./fastapi
-        run: black --check ./fastapi
+
+      - name: Run black --check ./src
+        run: black --check ./src
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
@@ -38,17 +38,17 @@ jobs:
           black: true
           flake8: true
           mypy: true
-          
+
       - name: If needed, commit black changes to the pull request
         if: failure()
         run: |
-          black ./fastapi
+          black ./src
           git config --global user.name 'JayThibs'
           git config --global user.email 'thibo.jacques@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git checkout $GITHUB_HEAD_REF
           git commit -am "fixup: Format Python code with Black"
           git push
-        
-      - name: Linting
-        run: make lint
+
+      # - name: Linting
+      #   run: make lint
