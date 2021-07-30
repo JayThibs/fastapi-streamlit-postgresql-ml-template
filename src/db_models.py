@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, Boolean
+from sqlalchemy import Integer, Float
 from sqlalchemy.sql.schema import Column
 from .database import Base
 
@@ -7,5 +7,7 @@ class BankNote(Base):
     __tablename__ = "banknote"
 
     id = Column(Integer, primary_key=True)
-    title = Column(String(255), nullable=False)
-    description = Column(String(255), nullable=False)
+    variance = Column(Float, nullable=False)
+    skewness = Column(Float, nullable=False)
+    curtosis = Column(Float, nullable=False)
+    entropy = Column(Float, nullable=False)
