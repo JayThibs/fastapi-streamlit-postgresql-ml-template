@@ -27,10 +27,10 @@ target_metadata = None
 
 def get_url():
     return "postgresql://%s:%s@%s/%s" % (
-        os.getenv("DB_USER", "vagrant"),
-        os.getenv("DB_PASSWORD", "vagrant"),
-        os.getenv("DB_HOST", "db"),
-        os.getenv("DB_NAME", "vagrant"),
+        os.getenv("DB_USER"),
+        os.getenv("DB_PASSWORD"),
+        os.getenv("DB_HOST"),
+        os.getenv("DB_NAME"),
     )
 
 
