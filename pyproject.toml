@@ -28,6 +28,12 @@ safety = "^1.10.3"
 Pillow = "^8.3.1"
 
 [tool.poetry.dev-dependencies]
+black = "^21.7b0"
+pylint = "^2.9.5"
+pycodestyle = "^2.7.0"
+pydocstyle = "^6.1.1"
+mypy = "^0.910"
+bandit = "^1.7.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
