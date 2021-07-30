@@ -3,6 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 
 import os
+from dotenv import load_dotenv
 import platform
 from sqlalchemy import create_engine
 
@@ -35,10 +36,12 @@ else:
 
 
 def get_url():
+    load_dotenv()
     return "postgresql+pygresql://%s:%s@%s/%s" % (
         os.getenv("DB_USER"),
         os.getenv("DB_PASSWORD"),
         dbHost,
+        # os.getenv("DB_PORT"),
         os.getenv("DB_NAME"),
     )
 
@@ -74,6 +77,7 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
+    print(get_url())
     connectable = create_engine(get_url())
 
     with connectable.connect() as connection:

@@ -1085,6 +1085,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "pygresql"
+version = "5.2.2"
+description = "Python PostgreSQL Interfaces"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pylint"
 version = "2.9.5"
 description = "python code static checker"
@@ -1631,7 +1639,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "3.7.5"
-content-hash = "eef7e370eb10f59bb2ce3b8674ab597657a4867dea82f34290458421c4f3ec41"
+content-hash = "d3f06c4c2fde0e924c9ffc2854089d94363aa72a1812a3db6ae509d922d209ce"
 
 [metadata.files]
 alembic = [
@@ -2365,6 +2373,21 @@ pydocstyle = [
 pygments = [
     {file = "Pygments-2.9.0-py3-none-any.whl", hash = "sha256:d66e804411278594d764fc69ec36ec13d9ae9147193a1740cd34d272ca383b8e"},
     {file = "Pygments-2.9.0.tar.gz", hash = "sha256:a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"},
+]
+pygresql = [
+    {file = "PyGreSQL-5.2.2-cp27-cp27m-win32.whl", hash = "sha256:1ffbaa14867e649aa257919c5d014954f6ee4f66171b6e3f7f7687c5320d12be"},
+    {file = "PyGreSQL-5.2.2-cp27-cp27m-win_amd64.whl", hash = "sha256:d1dab8a301b84320d5a257d4bb0b65921dfbab85c566a9df967086a8c27091b0"},
+    {file = "PyGreSQL-5.2.2-cp35-cp35m-win32.whl", hash = "sha256:cb63d642d3fb32edd4d34b932a4ff30c5e1bd19a9a8d5c882130c889d855073f"},
+    {file = "PyGreSQL-5.2.2-cp35-cp35m-win_amd64.whl", hash = "sha256:b9d97e36c35ae792397adace051ea7838f96cfcacb8e5a6e406b69d2cabba025"},
+    {file = "PyGreSQL-5.2.2-cp36-cp36m-win32.whl", hash = "sha256:37b61b297312539740c7a47c55b059a0f5aa1678ab4c342251d98392a8fa5fdc"},
+    {file = "PyGreSQL-5.2.2-cp36-cp36m-win_amd64.whl", hash = "sha256:ed4deb6542049f726e7869cbf92f441d52362fdb57f7690b1c11eb8ed13b703d"},
+    {file = "PyGreSQL-5.2.2-cp37-cp37m-win32.whl", hash = "sha256:36e27a5ed5c04b7bfa0d5d0e786ff94a7db90705bec0fc5ef2e59743a68bfb99"},
+    {file = "PyGreSQL-5.2.2-cp37-cp37m-win_amd64.whl", hash = "sha256:ab78bcd9db9827f59577885a9af23894bb8e75bfcf9b50e462a63c04ffaeb2bf"},
+    {file = "PyGreSQL-5.2.2-cp38-cp38-win32.whl", hash = "sha256:05708d359de6e27207d9552447391d4f8e488043222d9563de5a2c09a8c260cc"},
+    {file = "PyGreSQL-5.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:209ebe367ab4da290d3b780d761083fb0ab84d3d4f4b4427d3bc0cce9c663b5a"},
+    {file = "PyGreSQL-5.2.2-cp39-cp39-win32.whl", hash = "sha256:219323984e61b0ce0bb8a37bf2aba5c83d8da6ef45dc7d144e742133869c7af0"},
+    {file = "PyGreSQL-5.2.2-cp39-cp39-win_amd64.whl", hash = "sha256:197b8beb154027d2287c5d64b8adafebd0e0468e2035301b8df5cf5540d4b206"},
+    {file = "PyGreSQL-5.2.2.tar.gz", hash = "sha256:114f60dc486bf4967aad14dc3adde5e4f60a35eea1eb8f7b8f0ae15c21b6f4a5"},
 ]
 pylint = [
     {file = "pylint-2.9.5-py3-none-any.whl", hash = "sha256:748f81e5776d6273a6619506e08f1b48ff9bcb8198366a56821cf11aac14fc87"},
