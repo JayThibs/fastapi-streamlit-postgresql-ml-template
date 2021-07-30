@@ -3,6 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 
 import os
+import platform
 from sqlalchemy import create_engine
 
 # this is the Alembic Config object, which provides
@@ -24,12 +25,20 @@ target_metadata = None
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
+dbHost = ""
+if (
+    platform.system() == "Linux"
+):  # Linux means running inside Ubuntu in docker in my case.
+    dbHost = os.getenv("DB_HOST")
+else:
+    dbHost = "localhost"
+
 
 def get_url():
-    return "postgresql://%s:%s@%s/%s" % (
+    return "postgresql+pygresql://%s:%s@%s/%s" % (
         os.getenv("DB_USER"),
         os.getenv("DB_PASSWORD"),
-        os.getenv("DB_HOST"),
+        dbHost,
         os.getenv("DB_NAME"),
     )
 

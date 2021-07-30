@@ -11,7 +11,7 @@ conda-update:
 poetry:
 	poetry install
 
-DBPW ?= mysecretpassword
+DBPW?=mysecretpassword
 
 # run a PostgreSql container with Docker
 run-db:
