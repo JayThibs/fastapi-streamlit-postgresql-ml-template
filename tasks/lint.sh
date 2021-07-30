@@ -27,7 +27,7 @@ echo "mypy"
 mypy training || FAILURE=true
 
 echo "bandit"
-bandit -ll -r {training} || FAILURE=true
+bandit -ll -r training || FAILURE=true
 
 # echo "shellcheck"
 # find . -name "*.sh" -print0 | xargs -0 shellcheck || FAILURE=true
