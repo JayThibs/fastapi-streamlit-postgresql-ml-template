@@ -11,6 +11,10 @@ conda-update:
 poetry:
 	poetry install
 
+# run a PostgreSql container with Docker
+run-db:
+	docker run --name banknote_postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysuperpassword -e POSTGRES_DB=youtube -v ${PWD}/db_data:/var/lib/postgresql/data -d postgres
+
 # # Example training command
 # train-mnist-cnn-ddp:
 # 	python training/run_experiment.py --max_epochs=10 --gpus=-1 --accelerator=ddp --num_workers=20 --data_class=MNIST --model_class=CNN
