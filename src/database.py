@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 
 # Defining connection URL to the database
 load_dotenv()
-DBPW = os.getenv("DBPW")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://postgres:{DBPW}@localhost/banknote"
+SQLALCHEMY_DATABASE_URL = f"postgresql://postgres:{DB_PASSWORD}@localhost/banknote"
 
 # Set up connection to the database
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
