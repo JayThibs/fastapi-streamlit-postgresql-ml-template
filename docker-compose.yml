@@ -2,7 +2,7 @@ version: "3"
 
 services:
   fastapi:
-    build: src/fastapi/
+    build: src/fastapi-code/
     ports:
       - 8000:8000
     networks:
@@ -10,7 +10,7 @@ services:
     container_name: fastapi
 
   streamlit:
-    build: src/streamlit/
+    build: src/streamlit-code/
     depends_on:
       - fastapi
     ports:
